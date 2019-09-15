@@ -1,16 +1,18 @@
-servidores = ['localhost','A','B']
-def menu(servidores,etiqueta):
+tipo_ambiente = ['localhost','Desarrollo','Calidad']
+
+def menu (tipo,etiqueta):
     while True:
-        for host in servidores:
-            print(servidores.index(host) + 1,host)
-        seleccion = int(input("Seleccione un "))
-        if seleccion > 0 and seleccion <= len(servidores):
+        for elemento in tipo:
+            print(tipo.index(elemento) + 1, elemento)
+        seleccion = int(input("Seleccione un " + etiqueta + " : "))
+        if seleccion > 0 and seleccion <= len(tipo):
             break
-    return seleccion
+    return seleccion - 1
+
         
 while True:
-    servidor=menu(servidores,'Servidor')
-    print("Ud selecciono ", servidor)
+    ambiente = menu(tipo_ambiente,'ambiente')
+    print("Ud selecciono ", tipo_ambiente[ambiente])
     seguir = input ('Continuar S/N : ')
     if seguir.upper() == 'N':
         break
